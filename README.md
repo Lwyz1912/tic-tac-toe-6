@@ -19,10 +19,10 @@ Includes dark/light mode, Player vs Player, Player vs CPU, and animations.
 ## 🖼️ Preview
 
 ### ☀️ Light Mode
-![Light Mode](./light.png)
+![Light Mode](./Light.png)
 
 ### 🌙 Dark Mode
-![Dark Mode](./dark.png)
+![Dark Mode](./Dark.png)
 
 ---
 
