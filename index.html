@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 3 Tic-Tac-Toe</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.prod.js"></script>
+  <script src="./script.js" defer type="module"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="app">
+    <div class="game-container">
+      <h1>Tic-Tac-Toe</h1>
+      
+      <div class="game-mode-selector">
+        <h3>Game Mode</h3>
+        <div class="game-mode-buttons">
+          <button 
+            @click="setGameMode('pvp')" 
+            :class="{ 'selected': gameMode === 'pvp' }"
+          >Player vs Player</button>
+          <button 
+            @click="setGameMode('cpu')" 
+            :class="{ 'selected': gameMode === 'cpu' }"
+          >Player vs CPU</button>
+        </div>
+      </div>
+      
+      <div class="status">{{ status }}</div>
+      <div class="board">
+        <div 
+          v-for="(cell, index) in board" 
+          :key="index" 
+          class="cell" 
+          :class="{ 
+            'cell-x': cell === 'X', 
+            'cell-o': cell === 'O',
+            'fading': shouldFade(index)
+          }"
+          @click="makeMove(index)"
+        >
+          {{ cell }}
+        </div>
+      </div>
+      <div class="controls">
+        <button @click="resetGame">New Game</button>
+        <button @click="randomizeStartingPlayer">Random Starter</button>
+        <button @click="toggleTheme">Toggle Theme</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
